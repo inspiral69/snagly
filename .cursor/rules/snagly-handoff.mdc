@@ -1,0 +1,16 @@
+---
+description: Snagly project status and agent handoff — read first
+alwaysApply: true
+---
+
+# Snagly context
+
+Before big changes, read root **`AGENTS.md`** (current status + decisions).
+
+Quick facts:
+
+- Expo / React Native app in `mobile/` — iPhone first, Android later if product works
+- MVP: eBay UK + cameras/lenses; user types item/model into watches
+- Phase 0 UI scaffold is largely done; **next is Phase 1 deal engine** (live comps, scoring, alerts)
+- Open Xcode via `mobile/ios/Snagly.xcworkspace` only
+- Update `AGENTS.md` + `ROADMAP.md` when phase status changes

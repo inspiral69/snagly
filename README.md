@@ -6,7 +6,7 @@ See [CONCEPT.md](./CONCEPT.md) for the vision, [DESIGN.md](./DESIGN.md) for bran
 
 ## Status
 
-**Phase 0 foundation in progress** — mobile app scaffold with Home / Deals / Watchlist / Settings, watch CRUD, fee settings, sample deals, and stubbed eBay ingest.
+**Phase 0 mostly done** — see [AGENTS.md](./AGENTS.md) for the live handoff (stack, decisions, what’s next).
 
 Launch niche: **cameras & lenses** on **eBay UK**.
 
