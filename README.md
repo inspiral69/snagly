@@ -8,7 +8,7 @@ See [CONCEPT.md](./CONCEPT.md) for the vision, [DESIGN.md](./DESIGN.md) for bran
 
 **Phase 0 mostly done** — see [AGENTS.md](./AGENTS.md) for the live handoff (stack, decisions, what’s next).
 
-Launch niche: **cameras & lenses** on **eBay UK**.
+Launch niche: **telescopes** on **eBay UK**.
 
 ## Run the app
 

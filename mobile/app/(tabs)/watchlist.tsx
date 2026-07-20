@@ -24,7 +24,7 @@ export default function WatchlistScreen() {
         <View style={styles.empty}>
           <Text style={styles.emptyTitle}>No watches yet</Text>
           <Text style={styles.emptyBody}>
-            Create a watch for a model you know well — e.g. Sony 24-70 GM II.
+            Create a watch for a model you know well — e.g. Sky-Watcher 200P.
           </Text>
           <Link href="/watch/new" asChild>
             <Pressable style={styles.primary}>

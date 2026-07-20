@@ -14,32 +14,34 @@ AI resale assistant: user types an item/model they want to hunt → Snagly watch
 | --- | --- |
 | Stack | **React Native / Expo** (iPhone first, Android later if it takes off) |
 | Marketplace | **eBay UK only** for MVP |
-| Niche | **Cameras & lenses** (not sneakers yet) |
+| Niche | **Telescopes** (not mounts/cameras yet) |
 | Core UX | Type item / model → watchlist (category browse is later) |
 | Design | Dark navy, purple→pink→orange gradient, DM Sans — see `DESIGN.md` |
 
-## Where we are (as of 2026-07-14)
+## Where we are (as of 2026-07-20)
 
-**Phase 0 — Foundation: mostly done** (local-first UI scaffold).
+**Phase 1 started** — live eBay UK telescope comps + deal scoring in the app.
 
 Done:
 
 - Expo app in `mobile/` with tabs: Home · Deals · Watchlist · Settings
 - Watch create / edit / delete / pause
 - Fee + alert-gate settings
-- Sample camera deals + deal detail (“why”, profit breakdown, open eBay)
-- Stub eBay module (`mobile/lib/ebay.ts`) — no live API yet
+- Sample telescope watches (deals come from live eBay checks)
+- Live eBay UK search + SerpApi sold comps + deal scoring via snagly-api
+- Deals / Home pull-to-refresh against active watches
 - Brand app icon in assets + iOS AppIcon
 - Native iOS project kept in repo (`mobile/ios/`) for Xcode
 
 Not done yet:
 
-- Real eBay sold comps / live listings
-- Scoring engine beyond seed data
-- Push notifications
+- Background watch polling + push alerts
 - Auth / accounts
+- Condition matching beyond basic junk filters
 
-**Next:** Phase 1 — core deal engine (comps, net profit math on live data, confidence, watch polling, push).
+**Infra:** `snagly-api.p2apps.com` — deletion notifications, live search, SerpApi sold comps, `/v1/ebay/deals` scoring.
+
+**Next:** Background polling + push when a watch clears the profit bar.
 
 See `ROADMAP.md` for full phase list.
 

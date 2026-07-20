@@ -8,7 +8,7 @@ Build an AI-powered app that identifies undervalued listings by comparing live m
 
 ## Core User Journey
 
-1. User creates a watch (e.g. "Sony 24-70 GM II").
+1. User creates a watch (e.g. "Sky-Watcher 200P").
 2. AI analyses comparable sold items to understand typical value.
 3. AI understands current listings (model, condition, accessories, faults, seller details).
 4. Live monitoring checks for new listings.

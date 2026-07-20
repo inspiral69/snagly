@@ -1,6 +1,6 @@
 export type Marketplace = 'ebay_uk';
 
-export type Niche = 'cameras';
+export type Niche = 'telescopes';
 
 export type Confidence = 'low' | 'medium' | 'high';
 
@@ -22,7 +22,7 @@ export interface UserSettings {
 export interface Watch {
   id: string;
   title: string;
-  /** Free-text notes: boxed, accessories, size, “GM II not I”, etc. */
+  /** Free-text notes: boxed, finder, dust cover, OTA only vs full kit, etc. */
   notes: string;
   keywords: string;
   marketplace: Marketplace;
@@ -61,5 +61,5 @@ export const DEFAULT_SETTINGS: UserSettings = {
   defaultShippingOut: 6,
   minProfitGbp: 25,
   minRoiPercent: 15,
-  niche: 'cameras',
+  niche: 'telescopes',
 };

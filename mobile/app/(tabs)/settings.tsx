@@ -36,7 +36,7 @@ export default function SettingsScreen() {
   const onReset = () => {
     Alert.alert(
       'Reset demo data?',
-      'This restores sample watches and deals, and resets your fee settings.',
+      'This restores sample watches and clears deals/settings. Live deals come back when you pull to refresh.',
       [
         { text: 'Cancel', style: 'cancel' },
         {
@@ -94,7 +94,7 @@ export default function SettingsScreen() {
 
       <View style={styles.meta}>
         <Text style={styles.metaLabel}>Launch niche</Text>
-        <Text style={styles.metaValue}>Cameras & lenses · eBay UK</Text>
+        <Text style={styles.metaValue}>Telescopes · eBay UK</Text>
       </View>
 
       <Pressable

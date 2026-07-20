@@ -28,3 +28,9 @@ project.xcworkspace
 
 # CocoaPods
 /Pods/
+
+# Local Ruby/Bundler (do not commit)
+/vendor/
+.bundle/
+Gemfile
+Gemfile.lock

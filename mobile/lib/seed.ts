@@ -5,10 +5,10 @@ const now = Date.now();
 
 export const SEED_WATCHES: Watch[] = [
   {
-    id: 'watch-sony-2470',
-    title: 'Sony 24-70 GM II',
-    notes: 'Prefer boxed / with hood. Not GM I.',
-    keywords: 'Sony FE 24-70mm f/2.8 GM II',
+    id: 'watch-sw-200p',
+    title: 'Sky-Watcher 200P Explorer',
+    notes: 'OTA or full kit OK. Prefer collimation notes / photos of mirror.',
+    keywords: 'Sky-Watcher 200P Explorer',
     marketplace: 'ebay_uk',
     active: true,
     minProfitGbp: 40,
@@ -16,10 +16,10 @@ export const SEED_WATCHES: Watch[] = [
     updatedAt: new Date(now - 86400000 * 2).toISOString(),
   },
   {
-    id: 'watch-fuji-xt5',
-    title: 'Fujifilm X-T5 body',
-    notes: 'Low shutter count if listed. Body only OK.',
-    keywords: 'Fujifilm X-T5 body',
+    id: 'watch-celestron-c8',
+    title: 'Celestron C8 OTA',
+    notes: 'Classic C8 or EdgeHD. Check corrector plate condition.',
+    keywords: 'Celestron C8 OTA',
     marketplace: 'ebay_uk',
     active: true,
     minProfitGbp: null,
@@ -44,7 +44,7 @@ function makeDeal(partial: {
   listingPath: string;
 }): Deal {
   const shippingIn = partial.shippingIn ?? 0;
-  const shippingOut = partial.shippingOut ?? 6;
+  const shippingOut = partial.shippingOut ?? 25;
   const { fees, netProfit, roiPercent } = estimateNetProfit({
     buyPrice: partial.buyPrice,
     estResale: partial.estResale,
@@ -80,54 +80,54 @@ function makeDeal(partial: {
 export const SEED_DEALS: Deal[] = [
   makeDeal({
     id: 'deal-1',
-    watchId: 'watch-sony-2470',
-    title: 'Sony FE 24-70mm f/2.8 GM II — mint, boxed',
-    buyPrice: 1285,
-    estResale: 1680,
+    watchId: 'watch-sw-200p',
+    title: 'Sky-Watcher Explorer 200P — OTA, clean mirrors',
+    buyPrice: 185,
+    estResale: 265,
     confidence: 'high',
     why: [
       'Well below recent sold comps',
-      'Boxed with hood & paperwork',
+      'Mirrors look clean in photos',
       'Strong demand on eBay UK',
       'Trusted seller history',
     ],
     explanation:
-      'Recent UK solds for boxed mint copies sit around £1,650–£1,720. This ask is clearly under that band after fees and postage.',
+      'Recent UK solds for tidy 200P OTAs sit around £250–£280. This ask is clearly under that band after fees and postage.',
     hoursAgo: 1.5,
-    listingPath: 'sample-sony-2470',
+    listingPath: 'sample-sw-200p',
   }),
   makeDeal({
     id: 'deal-2',
-    watchId: 'watch-fuji-xt5',
-    title: 'Fujifilm X-T5 body — shutter ~2.1k',
-    buyPrice: 980,
-    estResale: 1220,
+    watchId: 'watch-celestron-c8',
+    title: 'Celestron C8 OTA — classic orange',
+    buyPrice: 420,
+    estResale: 560,
     confidence: 'medium',
     why: [
       'Below average sold price',
-      'Low shutter count stated',
-      'Fast-moving body in niche',
+      'Corrector looks clear',
+      'Fast-moving scope in niche',
     ],
     explanation:
-      'Similar low-shutter X-T5 bodies have been selling near £1,200. Condition looks solid; confidence is medium until photos are verified.',
+      'Similar classic C8 OTAs have been selling near £540–£580. Condition looks solid; confidence is medium until photos are verified.',
     hoursAgo: 4,
-    listingPath: 'sample-fuji-xt5',
+    listingPath: 'sample-celestron-c8',
   }),
   makeDeal({
     id: 'deal-3',
-    watchId: 'watch-sony-2470',
-    title: 'Sony 24-70 GM II — light marks, no box',
-    buyPrice: 1190,
-    estResale: 1480,
+    watchId: 'watch-sw-200p',
+    title: 'Sky-Watcher 200P — full kit, older mount',
+    buyPrice: 220,
+    estResale: 310,
     confidence: 'medium',
     why: [
-      'Priced under unboxed sold comps',
-      'Cosmetic notes disclosed',
+      'Priced under complete-kit sold comps',
+      'Mount age disclosed',
     ],
     explanation:
-      'Unboxed copies trade lower than mint-boxed. Still room for profit if cosmetics match the listing photos.',
+      'Full kits trade higher than OTA-only. Still room for profit if optics match the listing photos; mount may be the weak link.',
     hoursAgo: 9,
     seen: true,
-    listingPath: 'sample-sony-2470-unboxed',
+    listingPath: 'sample-sw-200p-kit',
   }),
 ];

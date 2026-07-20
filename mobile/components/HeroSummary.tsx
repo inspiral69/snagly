@@ -26,7 +26,7 @@ export function HeroSummary({ unreadCount, watchCount }: Props) {
       <Text style={styles.kicker}>Today</Text>
       <Text style={styles.headline}>{headline}</Text>
       <Text style={styles.sub}>
-        {watchCount} active {watchCount === 1 ? 'watch' : 'watches'} · eBay UK · cameras
+        {watchCount} active {watchCount === 1 ? 'watch' : 'watches'} · eBay UK · telescopes
       </Text>
       <Link href="/(tabs)/deals" asChild>
         <Pressable style={({ pressed }) => [styles.cta, pressed && { opacity: 0.9 }]}>

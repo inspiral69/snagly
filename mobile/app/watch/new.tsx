@@ -53,19 +53,19 @@ export default function NewWatchScreen() {
         <View style={styles.form}>
           <Field
             label="What are you hunting?"
-            placeholder="Sony 24-70 GM II"
+            placeholder="Sky-Watcher 200P"
             value={title}
             onChangeText={setTitle}
           />
           <Field
             label="Search keywords"
-            placeholder="Sony FE 24-70mm f/2.8 GM II"
+            placeholder="Sky-Watcher Explorer 200P"
             value={keywords}
             onChangeText={setKeywords}
           />
           <Field
             label="Must-haves / notes"
-            placeholder="Boxed, hood, GM II not I…"
+            placeholder="OTA only, clean mirrors, with finder…"
             value={notes}
             onChangeText={setNotes}
             multiline

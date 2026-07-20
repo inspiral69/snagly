@@ -42,7 +42,7 @@ Project scaffolding, local data model, design tokens from `DESIGN.md`.
 - [x] Home / Deals / Watchlist / Settings shells + deal detail
 - [ ] Account / auth (deferred — local-first for now)
 
-Launch niche locked for MVP: **cameras & lenses** · **eBay UK**.
+Launch niche locked for MVP: **telescopes** · **eBay UK**.
 
 ### Phase 1 — Core deal engine (MVP, ~3–5 weeks)
 
@@ -55,7 +55,7 @@ First product people can trust enough to try.
 - Watch polling + push alerts
 - Open on eBay
 
-**MVP constraints:** eBay UK only · **one niche** (cameras/lenses *or* sneakers, not both)
+**MVP constraints:** eBay UK only · **one niche** (telescopes only for MVP; mounts / astro cameras later)
 
 ### Phase 2 — Trust & filters (~2–3 weeks)
 

@@ -9,14 +9,19 @@ import { colors, spacing, typography } from '@/constants/theme';
 import { useSnagly } from '@/lib/store';
 
 export default function HomeScreen() {
-  const { deals, watches, unreadDealCount } = useSnagly();
+  const { deals, watches, unreadDealCount, refreshDeals, refreshingDeals } =
+    useSnagly();
   const topDeals = [...deals]
     .sort((a, b) => Number(a.seen) - Number(b.seen) || b.netProfit - a.netProfit)
     .slice(0, 3);
   const activeWatches = watches.filter((w) => w.active).length;
 
   return (
-    <Screen>
+    <Screen
+      onRefresh={() => {
+        void refreshDeals();
+      }}
+      refreshing={refreshingDeals}>
       <View style={styles.topBar}>
         <BrandLogo />
         <View style={styles.bellWrap}>
@@ -41,7 +46,11 @@ export default function HomeScreen() {
       </View>
 
       {topDeals.length === 0 ? (
-        <Text style={styles.empty}>No deals yet — add a watch to get started.</Text>
+        <Text style={styles.empty}>
+          {activeWatches === 0
+            ? 'Add a watch, then pull down to check eBay.'
+            : 'No strong deals right now — pull down to recheck, or enjoy the quiet.'}
+        </Text>
       ) : (
         topDeals.map((deal) => <DealCard key={deal.id} deal={deal} />)
       )}

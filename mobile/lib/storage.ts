@@ -2,13 +2,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import type { Deal, UserSettings, Watch } from '@/types/models';
 import { DEFAULT_SETTINGS } from '@/types/models';
-import { SEED_DEALS, SEED_WATCHES } from '@/lib/seed';
+import { SEED_WATCHES } from '@/lib/seed';
 
 const KEYS = {
   settings: '@snagly/settings',
   watches: '@snagly/watches',
   deals: '@snagly/deals',
-  seeded: '@snagly/seeded-v1',
+  seeded: '@snagly/seeded-v2',
+  lastDealCheck: '@snagly/last-deal-check',
 } as const;
 
 export async function loadSettings(): Promise<UserSettings> {
@@ -41,14 +42,35 @@ export async function saveDeals(deals: Deal[]): Promise<void> {
   await AsyncStorage.setItem(KEYS.deals, JSON.stringify(deals));
 }
 
-/** First launch: seed demo watches + deals so UI isn’t empty. */
+export async function loadLastDealCheck(): Promise<string | null> {
+  return AsyncStorage.getItem(KEYS.lastDealCheck);
+}
+
+export async function saveLastDealCheck(iso: string): Promise<void> {
+  await AsyncStorage.setItem(KEYS.lastDealCheck, iso);
+}
+
+/** First launch / migrate from demo-seeded deals. */
 export async function ensureSeedData(): Promise<void> {
   const seeded = await AsyncStorage.getItem(KEYS.seeded);
   if (seeded) return;
 
+  const legacy = await AsyncStorage.getItem('@snagly/seeded-v1');
+  if (legacy) {
+    // Keep watches/settings; drop fake sample deals
+    await AsyncStorage.multiRemove(['@snagly/seeded-v1', KEYS.deals, KEYS.lastDealCheck]);
+    const watches = await loadWatches();
+    if (!watches.length) {
+      await saveWatches(SEED_WATCHES);
+    }
+    await saveDeals([]);
+    await AsyncStorage.setItem(KEYS.seeded, '1');
+    return;
+  }
+
   await saveSettings({ ...DEFAULT_SETTINGS });
   await saveWatches(SEED_WATCHES);
-  await saveDeals(SEED_DEALS);
+  await saveDeals([]);
   await AsyncStorage.setItem(KEYS.seeded, '1');
 }
 
@@ -58,6 +80,8 @@ export async function resetDemoData(): Promise<void> {
     KEYS.watches,
     KEYS.deals,
     KEYS.seeded,
+    KEYS.lastDealCheck,
+    '@snagly/seeded-v1',
   ]);
   await ensureSeedData();
 }

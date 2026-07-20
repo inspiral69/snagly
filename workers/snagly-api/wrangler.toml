@@ -1,0 +1,21 @@
+name = "snagly-api"
+main = "src/index.ts"
+compatibility_date = "2026-07-01"
+
+# Custom domain only — no workers.dev subdomain required.
+workers_dev = false
+
+[vars]
+EBAY_NOTIFICATION_PATH = "/ebay/marketplace-account-deletion"
+
+# Secrets (wrangler secret put):
+#   EBAY_VERIFICATION_TOKEN — Marketplace Account Deletion verification token
+#   EBAY_CLIENT_ID          — Production App ID
+#   EBAY_CLIENT_SECRET      — Production Cert ID
+#   EBAY_DEV_ID             — Dev ID (same for all keysets)
+#   SERPAPI_API_KEY         — SerpApi key for sold comps (ebay.co.uk + show_only=Sold)
+
+[[routes]]
+pattern = "snagly-api.p2apps.com"
+custom_domain = true
+zone_name = "p2apps.com"

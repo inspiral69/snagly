@@ -37,7 +37,9 @@ export default function DealDetailScreen() {
             <Text style={styles.price}>{formatGbp(deal.buyPrice)}</Text>
             <View style={styles.badge}>
               <Text style={styles.badgeText}>
-                {Math.round(deal.percentBelowMarket)}% below market
+                {deal.percentBelowMarket >= 0
+                  ? `${Math.round(deal.percentBelowMarket)}% below market`
+                  : `${Math.round(Math.abs(deal.percentBelowMarket))}% above comps`}
               </Text>
             </View>
           </View>
